@@ -1,0 +1,19 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environment
+.venv/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Editor/IDE files
+.vscode/
+.idea/
+
+# Lumo files
+*.lumo
