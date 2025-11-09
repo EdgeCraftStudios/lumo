@@ -1,11 +1,19 @@
 from typing import Optional, Union
-from lumo.types import Entry, Section, File
+from .types import Entry, Section, File
 
 class Parser:
+    """Parses configuration-style files into a File object.
+
+    Methods:
+        parse(lines): Parse a list of strings into a File.
+        parse_file(filepath): Parse a file from disk into a File.
+    """
+
     def __init__(self):
         self.file = File()
 
     def _parse_value(self, value: str) -> Union[str, int, float, bool]:
+        """Internal helper: parse a string into int, float, bool, or keep as str."""
         value = value.strip()
         low = value.lower()
         if low == 'true':
@@ -20,10 +28,18 @@ class Parser:
             return value
 
     def parse(self, lines: list[str]) -> File:
+        """Parse a list of strings into a File object.
+
+        Args:
+            lines: Lines of a configuration file.
+
+        Returns:
+            File object containing sections and entries.
+        """
         current_section: Optional[Section] = None
         for line in lines:
             line = line.strip()
-            if line == '':
+            if not line:
                 continue
             if line.startswith('[') and line.endswith(']'):
                 section_name = line[1:-1].strip()
@@ -45,6 +61,14 @@ class Parser:
         return self.file
 
     def parse_file(self, filepath: str) -> File:
+        """Parse a file from disk into a File object.
+
+        Args:
+            filepath: Path to the configuration file.
+
+        Returns:
+            File object containing sections and entries.
+        """
         with open(filepath, 'r', encoding='utf-8') as f:
             lines = f.readlines()
         return self.parse(lines)

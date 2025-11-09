@@ -4,6 +4,7 @@
 
 ![License](https://img.shields.io/github/license/EdgeCraftStudios/lumo?style=flat&color=%2320B2AA)
 ![Release](https://img.shields.io/github/v/release/EdgeCraftStudios/lumo?sort=semver&display_name=release&style=flat&color=%23CD5C5C)
+![Downloads)](https://img.shields.io/github/downloads/EdgeCraftStudios/lumo/latest/total?sort=semver&style=flat&label=Downloads&color=%23F44336)
 
 lumo is a lightweight configuration file format inspired by INI files, designed to be easy to read and write. It supports:
 
